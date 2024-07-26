@@ -26,8 +26,7 @@ contract TestNFT is ERC721 {
     }
 	
 	function balanceOf(address account) public view virtual override returns (uint256) {
-		//require(msg.sender == account, "ERC721: msg.sender != account");
-		require(tx.origin == account, "ERC721: msg.sender != account");
+		require(msg.sender == account, "ERC721: msg.sender != account");
 		return _balances[account];
 	}
 }
